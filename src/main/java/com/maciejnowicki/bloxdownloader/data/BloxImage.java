@@ -1,4 +1,4 @@
-package com.maciejnowicki.bloxdownloader.blox.entry;
+package com.maciejnowicki.bloxdownloader.data;
 
 import com.maciejnowicki.bloxdownloader.util.URLResourceProvider;
 

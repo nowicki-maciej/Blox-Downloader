@@ -1,6 +1,7 @@
-package com.maciejnowicki.bloxdownloader.blox.repository;
+package com.maciejnowicki.bloxdownloader.data.repository;
 
-import com.maciejnowicki.bloxdownloader.blox.entry.BloxEntry;
+import com.maciejnowicki.bloxdownloader.data.BloxEntry;
+import com.maciejnowicki.bloxdownloader.data.Blox;
 
 import java.util.List;
 
@@ -9,9 +10,9 @@ public class MemoryBloxRepository implements BloxRepository {
     private String name;
     private List<BloxEntry> entries;
 
-    public MemoryBloxRepository(BloxDTO bloxDTO) {
-        this.name = bloxDTO.getName();
-        this.entries = bloxDTO.getBloxEntries();
+    public MemoryBloxRepository(Blox blox) {
+        this.name = blox.getName();
+        this.entries = blox.getEntries();
     }
 
     @Override

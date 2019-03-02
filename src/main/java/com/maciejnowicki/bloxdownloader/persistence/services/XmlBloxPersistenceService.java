@@ -1,9 +1,9 @@
 package com.maciejnowicki.bloxdownloader.persistence.services;
 
-import com.maciejnowicki.bloxdownloader.blox.Blox;
-import com.maciejnowicki.bloxdownloader.blox.entry.BloxEntry;
-import com.maciejnowicki.bloxdownloader.blox.entry.BloxImage;
-import com.maciejnowicki.bloxdownloader.persistence.FileFormat;
+import com.maciejnowicki.bloxdownloader.data.BloxDownloader;
+import com.maciejnowicki.bloxdownloader.data.BloxEntry;
+import com.maciejnowicki.bloxdownloader.data.BloxImage;
+import com.maciejnowicki.bloxdownloader.data.FileFormat;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
@@ -17,13 +17,13 @@ import java.util.List;
 
 public class XmlBloxPersistenceService implements BloxPersistenceService {
     @Override
-    public void save(Blox blox, File file) throws IOException {
-        List<BloxEntry> entries = blox.getEntries();
+    public void save(BloxDownloader bloxDownloader, File file) throws IOException {
+        List<BloxEntry> entries = bloxDownloader.getEntries();
         Document xml = DocumentHelper.createDocument();
-        Element root = xml.addElement("blox");
+        Element root = xml.addElement("bloxDownloader");
 
         for (BloxEntry entry : entries) {
-            Element xmlEntry = root.addElement("blox-entry");
+            Element xmlEntry = root.addElement("bloxDownloader-entry");
             xmlEntry.addElement("title")
                     .addText(entry.getTitle());
 
@@ -44,7 +44,7 @@ public class XmlBloxPersistenceService implements BloxPersistenceService {
 
             Element xmlImages = xmlEntry.addElement("images");
             for (BloxImage img : entry.getImages()) {
-                Element xmlImg = xmlImages.addElement("blox-image");
+                Element xmlImg = xmlImages.addElement("bloxDownloader-image");
 
                 xmlImg.addElement("title")
                         .addText(img.getTitle());
@@ -63,7 +63,7 @@ public class XmlBloxPersistenceService implements BloxPersistenceService {
     }
 
     @Override
-    public Blox load(File file) throws IOException {
+    public BloxDownloader load(File file) throws IOException {
         return null;
     }
 

@@ -1,10 +1,10 @@
 package com.maciejnowicki.bloxdownloader.persistence.services;
 
 import com.google.gson.Gson;
-import com.maciejnowicki.bloxdownloader.blox.Blox;
-import com.maciejnowicki.bloxdownloader.blox.repository.BloxDTO;
-import com.maciejnowicki.bloxdownloader.blox.repository.MemoryBloxRepository;
-import com.maciejnowicki.bloxdownloader.persistence.FileFormat;
+import com.maciejnowicki.bloxdownloader.data.BloxDownloader;
+import com.maciejnowicki.bloxdownloader.data.Blox;
+import com.maciejnowicki.bloxdownloader.data.repository.MemoryBloxRepository;
+import com.maciejnowicki.bloxdownloader.data.FileFormat;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,10 +16,10 @@ public class JsonBloxPersistenceService implements BloxPersistenceService {
     private Gson gson = new Gson();
 
     @Override
-    public void save(Blox blox, File file) throws IOException {
+    public void save(BloxDownloader bloxDownloader, File file) throws IOException {
         //TODO: change to Jackson
         String serialized = gson.toJson(
-                new BloxDTO(blox.getName(), blox.getEntries())
+                new Blox(bloxDownloader.getName(), bloxDownloader.getEntries())
         );
 
         try (PrintWriter pw = new PrintWriter(file)) {
@@ -28,13 +28,13 @@ public class JsonBloxPersistenceService implements BloxPersistenceService {
     }
 
     @Override
-    public Blox load(File file) throws IOException {
-        BloxDTO bloxDTO = gson.fromJson(
+    public BloxDownloader load(File file) throws IOException {
+        Blox blox = gson.fromJson(
                 new String(Files.readAllBytes(file.toPath())),
-                BloxDTO.class
+                Blox.class
         );
 
-        return new Blox(new MemoryBloxRepository(bloxDTO));
+        return new BloxDownloader(new MemoryBloxRepository(blox));
     }
 
     @Override

@@ -1,5 +1,6 @@
-package com.maciejnowicki.bloxdownloader.blox.entry;
+package com.maciejnowicki.bloxdownloader.data;
 
+import com.maciejnowicki.bloxdownloader.data.parsers.BloxEntryParser;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.slf4j.Logger;

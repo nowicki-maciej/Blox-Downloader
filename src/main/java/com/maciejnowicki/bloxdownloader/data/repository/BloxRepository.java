@@ -1,6 +1,6 @@
-package com.maciejnowicki.bloxdownloader.blox.repository;
+package com.maciejnowicki.bloxdownloader.data.repository;
 
-import com.maciejnowicki.bloxdownloader.blox.entry.BloxEntry;
+import com.maciejnowicki.bloxdownloader.data.BloxEntry;
 
 import java.util.List;
 

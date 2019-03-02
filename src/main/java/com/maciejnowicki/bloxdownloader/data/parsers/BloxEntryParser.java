@@ -1,5 +1,7 @@
-package com.maciejnowicki.bloxdownloader.blox.entry;
+package com.maciejnowicki.bloxdownloader.data.parsers;
 
+import com.maciejnowicki.bloxdownloader.data.BloxEntry;
+import com.maciejnowicki.bloxdownloader.data.BloxImage;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;

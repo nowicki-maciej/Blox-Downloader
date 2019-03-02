@@ -1,4 +1,4 @@
-package com.maciejnowicki.bloxdownloader.blox.entry;
+package com.maciejnowicki.bloxdownloader.data;
 
 import java.util.ArrayList;
 import java.util.List;

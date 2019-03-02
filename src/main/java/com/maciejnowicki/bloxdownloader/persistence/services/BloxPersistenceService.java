@@ -1,14 +1,14 @@
 package com.maciejnowicki.bloxdownloader.persistence.services;
 
-import com.maciejnowicki.bloxdownloader.blox.Blox;
-import com.maciejnowicki.bloxdownloader.persistence.FileFormat;
+import com.maciejnowicki.bloxdownloader.data.BloxDownloader;
+import com.maciejnowicki.bloxdownloader.data.FileFormat;
 
 import java.io.File;
 import java.io.IOException;
 
 public interface BloxPersistenceService {
 
-    void save(Blox blox, File file) throws IOException;
-    Blox load(File file) throws IOException;
+    void save(BloxDownloader bloxDownloader, File file) throws IOException;
+    BloxDownloader load(File file) throws IOException;
     FileFormat getFileFormat();
 }
